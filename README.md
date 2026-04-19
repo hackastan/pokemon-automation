@@ -1,7 +1,7 @@
 # Pokémon Automation
 
-Closed-loop automation scripts for Pokémon FireRed/LeafGreen using a Raspberry Pi Pico H,
-a USB capture card, and Python/OpenCV for visual detection.
+Closed-loop automation scripts for Pokémon FireRed/LeafGreen using a Raspberry Pi Pico H, 
+a Raspberry Pi Debug Probe, a USB capture card, and Python/OpenCV for visual detection.
 
 ## Projects
 
