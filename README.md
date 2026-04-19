@@ -1,6 +1,6 @@
 # Pokémon Automation
 
-Closed-loop automation scripts for Pokémon FireRed/LeafGreen using a Raspberry Pi Pico,
+Closed-loop automation scripts for Pokémon FireRed/LeafGreen using a Raspberry Pi Pico H,
 a USB capture card, and Python/OpenCV for visual detection.
 
 ## Projects
@@ -17,11 +17,17 @@ when the battle ends.
 
 ## Hardware Required
 
-- Raspberry Pi Pico (flashed with the controller firmware)
+- Raspberry Pi Pico H (flashed with the controller firmware)
+- Raspberry Pi Debug Probe
+- 2 USB Cables
 - USB capture card (Elgato HD60 X or Magewell USB Capture HDMI Gen 2)
-- GBA or Switch running FireRed/LeafGreen via capture card
+- Switch running FireRed/LeafGreen via capture card
 
 ## Software Dependencies
+
+- Open Broadcaster Software
+- Python
+- Arduino IDE
 
 ```bash
 pip install opencv-python numpy pyserial obsws-python
@@ -29,9 +35,9 @@ pip install opencv-python numpy pyserial obsws-python
 
 ## Setup
 
-1. Flash your Raspberry Pi Pico with the controller firmware
+1. Flash your Raspberry Pi Pico H with the controller firmware
 2. Run `tools/find_devices.py` to find your capture card index
-3. Open the script you want to use and set `COM_PORT` to your Pico's port
+3. Open the script you want to use and set `COM_PORT` to your Pico H's port
    - Windows: `"COM5"` (check Device Manager)
    - Mac/Linux: `"/dev/ttyACM0"`
 4. Set `CAPTURE_INDEX` to the number from step 2, or leave it as `None` to auto-detect
