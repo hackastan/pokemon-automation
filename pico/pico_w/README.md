@@ -1,35 +1,30 @@
-# Pico controller sketch for Nintendo Switch automation
-
-This folder contains the Raspberry Pi Pico / Pico H Arduino sketch used in my Switch automation setup.
-
-The sketch identifies the Pico as a Switch compatible HID controller and accepts simple serial commands over `Serial1` at `115200` baud. Each supported command triggers a corresponding button press or D-pad input on the console.
-
 ## What this is for
 
-This code is provided as a reference for the Pico side of the setup. It may be useful for people who want to understand, reproduce, or adapt the controller input portion of the method.
+This code is provided as a reference for the Pico W side of a setup. It may be useful for people who want to understand, reproduce, or create their own automation on a switch.
 
 ## Requirements
 
-- Raspberry Pi Pico or Pico H
+- Raspberry Pi Pico 2 W
 - Arduino IDE or another compatible Arduino build environment for Pico boards
+- [this pico library](https://github.com/earlephilhower/arduino-pico)
 - The required Switch HID support dependency used by the sketch:
-  - `switch_tinyusb.h`
+  - `switch_tinyusb.h` [link](https://github.com/touchgadget/switch_tinyusb/blob/main/switch_tinyusb.h)
 
 ## Supported serial commands
 
 Send one of the following commands followed by a newline:
 
-- `A`
-- `B`
-- `X`
-- `Y`
-- `UP`
-- `DOWN`
-- `LEFT`
-- `RIGHT`
-- `HOME`
-- `ABXY`
-- `STOP`
+- `curl http://IP_HERE/press?cmd=A`
+- `curl http://IP_HERE/press?cmd=B`
+- `curl http://IP_HERE/press?cmd=X`
+- `curl http://IP_HERE/press?cmd=Y`
+- `curl http://IP_HERE/press?cmd=UP`
+- `curl http://IP_HERE/press?cmd=DOWN`
+- `curl http://IP_HERE/press?cmd=LEFT`
+- `curl http://IP_HERE/press?cmd=RIGHT`
+- `curl http://IP_HERE/press?cmd=HOME`
+- `curl http://IP_HERE/press?cmd=ABXY`
+- `curl http://IP_HERE/press?cmd=STOP`
 
 ## Command behavior
 
@@ -40,14 +35,12 @@ Send one of the following commands followed by a newline:
 
 ## Implementation notes
 
-- `Serial1` is initialized at `115200`
-- The sketch waits for the USB device to mount before continuing
 - The USB device ID is set in `setup()`
 - Input handling is intentionally simple and command based
 
 ## Files
 
-- `pico_switch_controller.ino` - main Pico sketch
+- `pico_w_switch_controller.ino` - main Pico sketch
 
 ## Notes
 
