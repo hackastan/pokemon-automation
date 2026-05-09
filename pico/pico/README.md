@@ -13,7 +13,7 @@ This code is provided as a reference for the Pico side of the setup. It may be u
 - Raspberry Pi Pico or Pico H
 - Arduino IDE or another compatible Arduino build environment for Pico boards
 - The required Switch HID support dependency used by the sketch:
-  - `switch_tinyusb.h`
+  - `switch_tinyusb.h` [link](https://github.com/touchgadget/switch_tinyusb/blob/main/switch_tinyusb.h)
 
 ## Supported serial commands
 
