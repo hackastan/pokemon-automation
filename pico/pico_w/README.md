@@ -10,28 +10,38 @@ This code is provided as a reference for the Pico W side of a setup. It may be u
 - The required Switch HID support dependency used by the sketch:
   - `switch_tinyusb.h` [link](https://github.com/touchgadget/switch_tinyusb/blob/main/switch_tinyusb.h)
 
-## Supported serial commands
+## Supported http commands
 
 Send one of the following commands followed by a newline:
 
+### Buttons
 - `curl http://IP_HERE/press?cmd=A`
 - `curl http://IP_HERE/press?cmd=B`
 - `curl http://IP_HERE/press?cmd=X`
 - `curl http://IP_HERE/press?cmd=Y`
+- `curl http://IP_HERE/press?cmd=L`
+- `curl http://IP_HERE/press?cmd=R`
+- `curl http://IP_HERE/press?cmd=ZL`
+- `curl http://IP_HERE/press?cmd=ZR`
+- `curl http://IP_HERE/press?cmd=PLUS`
+- `curl http://IP_HERE/press?cmd=MINUS`
+- `curl http://IP_HERE/press?cmd=HOME`
+- `curl http://IP_HERE/press?cmd=CAPTURE`
 - `curl http://IP_HERE/press?cmd=UP`
 - `curl http://IP_HERE/press?cmd=DOWN`
 - `curl http://IP_HERE/press?cmd=LEFT`
 - `curl http://IP_HERE/press?cmd=RIGHT`
-- `curl http://IP_HERE/press?cmd=HOME`
 - `curl http://IP_HERE/press?cmd=ABXY`
 - `curl http://IP_HERE/press?cmd=STOP`
+- `curl http://IP_HERE/status`
 
 ## Command behavior
 
-- `A`, `B`, `X`, `Y`, and `HOME` perform a short button press
-- `UP`, `DOWN`, `LEFT`, and `RIGHT` perform a short D-pad press, then return to centered
-- `ABXY` presses A, B, X, and Y together for about 1 second, then releases
-- `STOP` releases all held inputs
+- All button and D-pad commands perform a 100 ms press then release
+- D-pad commands return to centered after release
+- `ABXY` presses A, B, X, and Y together for 1 second, then releases all
+- `STOP` immediately releases all held inputs
+- Commands are case-insensitive
 
 ## Implementation notes
 

@@ -25,19 +25,19 @@ void setup() {
   Gamepad.begin();
   while (!USBDevice.mounted()) delay(1);
 
-  // Optional: keep Serial for debug output via USB serial monitor
-  Serial.begin(115200);
+  // Optional: keep Serial1 for debug output via uart
+  Serial1.begin(115200);
 
   // Connect to Wi-Fi
   WiFi.begin(WIFI_SSID, WIFI_PASS);
-  Serial.print("Connecting to WiFi");
+  Serial1.print("Connecting to WiFi");
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    Serial.print(".");
+    Serial1.print(".");
   }
-  Serial.println();
-  Serial.print("Connected! IP: ");
-  Serial.println(WiFi.localIP());
+  Serial1.println();
+  Serial1.print("Connected! IP: ");
+  Serial1.println(WiFi.localIP());
 
   server.begin();
 }
